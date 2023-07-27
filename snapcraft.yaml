@@ -25,6 +25,10 @@ apps:
       - home
       - audio-playback
       - network
+      - network-status
+      - network-bind
+      - unity7
+      - screen-inhibit-control
       - optical-drive
       - removable-media
     slots:
@@ -35,13 +39,33 @@ apps:
 parts:  
   g4music:
     source: https://gitlab.gnome.org/neithern/g4music.git
+    source-tag: v2.4
     plugin: meson
     parse-info: [usr/share/metainfo/com.github.neithern.g4music.appdata.xml]
     meson-parameters:
-      - -Dprefix=/usr
+      - --prefix=/usr
+      - --buildtype=release
     build-packages:
       - libgstreamer1.0-dev
       - libgstreamer-plugins-base1.0-dev
+    build-snaps:
+      - cmake  
     override-pull: |
       craftctl default
       craftctl set version=$(git describe --tags --abbrev=0 | cut -c 2-)
+    prime:
+      - -usr/share/locale
+  
+  cleanup:
+    after:  
+      - g4music
+    plugin: nil
+    build-snaps: 
+      - gnome-42-2204
+      - core22
+      - gtk-common-themes
+    override-prime: |
+      set -eux
+      for snap in "gnome-42-2204" "core22" "gtk-common-themes"; do
+      cd "/snap/$snap/current" && find . -type f,l -exec rm -f "$CRAFT_PRIME/{}" \;
+      done       
