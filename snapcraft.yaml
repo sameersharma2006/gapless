@@ -8,7 +8,7 @@ architectures:
   - build-on: amd64
   - build-on: arm64
   - build-on: armhf
-    
+
 slots:
   g4music:
     interface: dbus
@@ -16,7 +16,7 @@ slots:
     name: com.github.neithern.g4music
   mpris:
     name: G4Music
-  
+
 apps:
   g4music:
     command: usr/bin/g4music
@@ -35,11 +35,11 @@ apps:
       - mpris
     common-id: com.github.neithern.g4music
     desktop: usr/share/applications/com.github.neithern.g4music.desktop
-    
-parts:  
+
+parts:
   g4music:
     source: https://gitlab.gnome.org/neithern/g4music.git
-    source-tag: v3.3
+    source-tag: v3.4
     plugin: meson
     parse-info: [usr/share/metainfo/com.github.neithern.g4music.appdata.xml]
     meson-parameters:
@@ -49,17 +49,16 @@ parts:
       - libgstreamer1.0-dev
       - libgstreamer-plugins-base1.0-dev
     build-snaps:
-      - cmake  
+      - cmake
     override-pull: |
       craftctl default
-      craftctl set version=$(git describe --tags --abbrev=0 | cut -c 2-)
       sed -e 's|Icon=@app_id@|Icon=${SNAP}/usr/share/icons/hicolor/scalable/apps/com.github.neithern.g4music.svg|' -i data/app.desktop.in
-    
+
   cleanup:
-    after:  
+    after:
       - g4music
     plugin: nil
-    build-snaps: 
+    build-snaps:
       - gnome-42-2204
       - core22
       - gtk-common-themes
@@ -67,4 +66,4 @@ parts:
       set -eux
       for snap in "gnome-42-2204" "core22" "gtk-common-themes"; do
           cd "/snap/$snap/current" && find . -type f,l -exec rm -f "$CRAFT_PRIME/{}" \;
-      done       
+      done
