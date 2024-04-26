@@ -29,7 +29,6 @@ apps:
       - network-bind
       - unity7
       - screen-inhibit-control
-      - optical-drive
       - removable-media
     slots:
       - mpris
@@ -39,7 +38,8 @@ apps:
 parts:
   g4music:
     source: https://gitlab.gnome.org/neithern/g4music.git
-    source-tag: v3.5.1
+    source-depth: 1
+    source-tag: 'v3.5.1'
     plugin: meson
     parse-info: [usr/share/metainfo/com.github.neithern.g4music.appdata.xml]
     meson-parameters:
