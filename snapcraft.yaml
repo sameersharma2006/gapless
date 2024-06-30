@@ -1,12 +1,13 @@
 name: g4music
-base: core24
+base: core22
 adopt-info: g4music
 grade: stable
 confinement: strict
 compression: lzo
-platforms:
-  amd64:
-  arm64:
+architectures:
+  - build-on: amd64
+  - build-on: arm64
+  - build-on: armhf
 
 slots:
   g4music:
