@@ -39,7 +39,7 @@ parts:
   g4music:
     source: https://gitlab.gnome.org/neithern/g4music.git
     source-depth: 1
-    source-tag: 'v3.7.1'
+    source-tag: 'v3.7.2'
     plugin: meson
     parse-info: [usr/share/metainfo/com.github.neithern.g4music.appdata.xml]
     meson-parameters:
