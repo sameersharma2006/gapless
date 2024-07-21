@@ -1,6 +1,6 @@
-name: g4music
+name: gapless
 base: core24
-adopt-info: g4music
+adopt-info: gapless
 grade: stable
 confinement: strict
 compression: lzo
@@ -9,15 +9,15 @@ platforms:
   arm64:
 
 slots:
-  g4music:
+  gapless:
     interface: dbus
     bus: session
     name: com.github.neithern.g4music
   mpris:
-    name: G4Music
+    name: Gapless
 
 apps:
-  g4music:
+  gapless:
     command: usr/bin/g4music
     extensions: [gnome]
     plugs:
@@ -35,10 +35,10 @@ apps:
     desktop: usr/share/applications/com.github.neithern.g4music.desktop
 
 parts:
-  g4music:
+  gapless:
     source: https://gitlab.gnome.org/neithern/g4music.git
     source-depth: 1
-    source-tag: 'v3.7.2'
+    source-tag: 'v3.8'
     plugin: meson
     parse-info: [usr/share/metainfo/com.github.neithern.g4music.appdata.xml]
     meson-parameters:
@@ -51,3 +51,5 @@ parts:
     override-pull: |
       craftctl default
       sed -e 's|Icon=@app_id@|Icon=${SNAP}/usr/share/icons/hicolor/scalable/apps/com.github.neithern.g4music.svg|' -i data/app.desktop.in
+    prime:
+      - -usr/share/metainfo
