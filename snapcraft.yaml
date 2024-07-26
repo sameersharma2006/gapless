@@ -9,7 +9,7 @@ platforms:
   arm64:
 
 slots:
-  g4music:
+  gapless:
     interface: dbus
     bus: session
     name: com.github.neithern.g4music
