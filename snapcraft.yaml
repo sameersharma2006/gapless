@@ -1,4 +1,4 @@
-name: g4music
+name: gapless
 base: core24
 adopt-info: gapless
 grade: stable
