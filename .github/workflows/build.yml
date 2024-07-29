@@ -3,7 +3,7 @@ on:
   pull_request:
   push:
     branches:
-      - main
+      - gapless
   workflow_dispatch:
 
 jobs:
