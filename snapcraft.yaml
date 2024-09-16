@@ -40,7 +40,7 @@ parts:
     source-depth: 1
     source-tag: 'v3.9.2'
     plugin: meson
-    parse-info: [usr/share/metainfo/com.github.neithern.g4music.appdata.xml]
+    parse-info: [usr/share/metainfo/com.github.neithern.g4music.metainfo.xml]
     meson-parameters:
       - --prefix=/usr
       - --buildtype=release
