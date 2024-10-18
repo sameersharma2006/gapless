@@ -38,7 +38,7 @@ parts:
   gapless:
     source: https://gitlab.gnome.org/neithern/g4music.git
     source-depth: 1
-    source-tag: 'v3.9.2'
+    source-tag: 'v4.0'
     plugin: meson
     parse-info: [usr/share/metainfo/com.github.neithern.g4music.metainfo.xml]
     meson-parameters:
