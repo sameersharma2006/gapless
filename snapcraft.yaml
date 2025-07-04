@@ -14,7 +14,7 @@ slots:
     bus: session
     name: com.github.neithern.g4music
   mpris:
-    name: Gapless
+    name: g4music
 
 apps:
   gapless:
