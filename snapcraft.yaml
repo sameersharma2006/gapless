@@ -51,6 +51,6 @@ parts:
     override-pull: |
       craftctl default
       sed -e 's|Icon=@app_id@|Icon=${SNAP}/usr/share/icons/hicolor/scalable/apps/com.github.neithern.g4music.svg|' -i data/app.desktop.in
-      sed -e 's|"org.mpris.MediaPlayer2." + application_id,|"org.mpris.MediaPlayer2." + g4music,|' -i src/application.vala  #https://github.com/sameersharma2006/gapless/issues/2
+      #sed -e 's|"org.mpris.MediaPlayer2." + application_id,|"org.mpris.MediaPlayer2." + g4music,|' -i src/application.vala  #https://github.com/sameersharma2006/gapless/issues/2
     prime:
       - -usr/share/metainfo
